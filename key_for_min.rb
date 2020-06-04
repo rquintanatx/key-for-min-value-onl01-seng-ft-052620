@@ -1,6 +1,28 @@
-# prereqs: iterators, hashes, conditional logic
-# Given a hash with numeric values, return the key for the smallest value
+require "pry"
+
+ikea = {:chair => 25, :table => 10, :mattress => 450}
 
 def key_for_min_value(name_hash)
-
+  if name_hash.empty?
+    return nil
+  end
+  
+  min_num_value = nil
+  min_num_key = nil
+  
+  name_hash.each do |key, value|
+    if min_num_value == nil 
+      min_num_value = value
+      min_num_key = key
+    elsif value < min_num_value
+      min_num_value = value
+      min_num_key = key
+    end
+  end
+  
+  min_num_key
 end
+
+key_for_min_value(ikea)
+
+
